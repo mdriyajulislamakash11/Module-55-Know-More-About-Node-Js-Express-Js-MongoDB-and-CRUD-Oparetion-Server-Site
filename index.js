@@ -37,6 +37,15 @@ async function run() {
       res.send(result)
     })
 
+    //ubdate
+    app.get("/users/:id", async (rec, res) => {
+      const id = rec.params.id;
+      const query = {_id : new ObjectId(id)}
+      const user = userCollection.findOne(query)
+      res.send(user)
+      
+    })
+
     // post
     app.post("/users", async (rec, res) => {
       const user = rec.body;
