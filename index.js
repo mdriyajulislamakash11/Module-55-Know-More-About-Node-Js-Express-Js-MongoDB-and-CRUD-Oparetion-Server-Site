@@ -41,7 +41,7 @@ async function run() {
     app.get("/users/:id", async (rec, res) => {
       const id = rec.params.id;
       const query = {_id : new ObjectId(id)}
-      const user = userCollection.findOne(query)
+      const user = await userCollection.findOne(query)
       res.send(user)
       
     })
