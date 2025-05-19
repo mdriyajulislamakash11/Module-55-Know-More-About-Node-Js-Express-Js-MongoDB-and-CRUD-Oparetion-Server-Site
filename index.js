@@ -44,6 +44,12 @@ async function run() {
       const user = await userCollection.findOne(query)
       res.send(user)
       
+    });
+
+    app.put("/users/:id", async (rec, res) => {
+      const id = rec.params.id;
+      const ubdatedUsers = rec.body;
+      console.log(id, ubdatedUsers)
     })
 
     // post
